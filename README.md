@@ -1,6 +1,5 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=rect&height=180&color=0:0B3D2E,50:16865B,100:38BDF8&text=pysh&fontSize=72&fontColor=FFFFFF&fontAlignY=45&desc=A%20Python%20Shell%20Project&descAlignY=70&descSize=18" width="100%" alt="pysh gradient banner" />
-
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=260&color=gradient&section=header&reversal=false&text=Pysh&textBg=false&fontSize=70&fontAlign=50&fontAlignY=50&animation=twinkling&rotate=0&strokeWidth=0&desc=A+Python+Shell+Project&descSize=22&descAlign=49&descAlignY=72" width="100%" alt="Pysh — A Python Shell Project" />
   <p>
     <strong>A small shell built with Python, one command at a time.</strong>
   </p>
@@ -114,7 +113,5 @@ This is an educational project created for personal practice and experimentation
 ---
 
 <div align="center">
-  <sub>Built with Python, curiosity, and a willingness to experiment.</sub>
-  <br><br>
-  <img src="https://capsule-render.vercel.app/api?type=rect&height=70&color=0:38BDF8,50:16865B,100:0B3D2E&section=footer" width="100%" alt="Gradient footer" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=210&color=gradient&section=footer&reversal=false&textBg=false&fontSize=70&fontAlign=50&fontAlignY=50&animation=twinkling&rotate=0&strokeWidth=0&descSize=22&descAlign=49&descAlignY=72" width="100%" alt="Gradient footer" />
 </div>
