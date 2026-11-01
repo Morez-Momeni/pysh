@@ -4,24 +4,26 @@ from rich.text import Text
 from rich.align import Align
 from rich.theme import Theme
 
+from uisettings import theme , header
 
 theme = Theme({
-    "prompt": "bold green",
-    "path": "bold cyan",
-    "command": "bold white",
-    "output": "white",
-    "muted": "dim white",
+    "prompt": theme['prompt'],
+    "path": theme['path'],
+    "command": theme['command'],
+    "output": theme['output'],
+    "muted": theme['muted'],
 })
 
 console = Console(theme=theme)
 
 
 def show_interface():
+    global header
     console.clear()
 
     # Header
-    title = Text("PYSH", style="bold green", justify="center")
-    subtitle = Text("A Python Shell Project", style="dim white")
+    title = Text("PYSH", style=header['title'], justify="center")
+    subtitle = Text("A Python Shell Project", style=header['subtitle'])
 
     header = Text()
     header.append(title)
