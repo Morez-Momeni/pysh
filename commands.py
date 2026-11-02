@@ -1,4 +1,5 @@
 import os
+import time
 from datetime import datetime
 from colorama import Fore , Style
 from env import CWD , USER , DESKTOP
@@ -201,6 +202,32 @@ def man(command):
         print(func.__doc__)
     else:
         print(f"Unknown command: {command}")
+
+def watch(command, n_flag=False, timer=1):
+    commands = {
+        'cat': cat,
+        'pwd': pwd,
+        'printenv': printenv
+    }
+
+    func = commands.get(command)
+
+    if func is None:
+        print(f"watch: {command}: command not found or not supported")
+        return
+
+    try:
+        if n_flag:
+            while True:
+                func()
+                time.sleep(timer)
+        else:
+            func()
+
+    except KeyboardInterrupt:
+        print("\nWatch stopped.")
+
+watch("ls",n_flag=True,timer=5)
 
 
 if __name__ == '__main__':

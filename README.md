@@ -19,6 +19,8 @@
 
 The idea is simple: build a small command-line shell from scratch and gradually explore how command-line interfaces work, how files and directories are managed, and how different parts of a shell fit together.
 
+The project also explores terminal presentation and user customization, including configurable colors, terminal styling, and a more structured interface.
+
 This project is not intended to be a production-ready replacement for existing shells. It is a space to learn by building, experiment with new ideas, and improve the code step by step.
 
 ## Goals
@@ -27,12 +29,13 @@ This project is not intended to be a production-ready replacement for existing s
 - Work with filesystem operations and path handling.
 - Learn how to organize commands and their behavior.
 - Explore command parsing and argument handling.
+- Experiment with terminal styling and customization.
 - Improve error handling and code organization.
 - Gradually expand the shell as new ideas come up.
 
 ## Current Features
 
-The project currently includes basic commands for filesystem navigation, file management, and environment information.
+The project currently includes commands for filesystem navigation, file management, environment information, command documentation, and repeated command execution.
 
 | Command | Description |
 |:---|:---|
@@ -47,6 +50,7 @@ The project currently includes basic commands for filesystem navigation, file ma
 | `cat -n` | Displays file contents with line numbers. |
 | `printenv` | Displays selected environment information. |
 | `man` | Displays the documentation of a supported command. |
+| `watch` | Repeatedly executes a supported command at a specified interval. |
 
 ### Filesystem Navigation
 
@@ -67,15 +71,16 @@ Displays the current working directory maintained by `pysh`.
 
 Changes the current working directory.
 
-The current implementation supports moving to the parent directory with `cd ..`, returning to the home directory with `cd`, and navigating to a directory when its path can be resolved.
+The current implementation supports:
+- Moving to the parent directory with `cd ..`.
+- Returning to the home directory with `cd`.
+- Navigating to a directory when its path can be resolved.
 
 ### File Management
 
 #### `mkdir`
 
 Creates a directory inside the current working directory.
-
-The current implementation handles the case where the target already exists.
 
 #### `touch`
 
@@ -103,28 +108,68 @@ Displays selected environment information obtained from the project's `env` modu
 
 Displays the Python docstring associated with a supported command.
 
-The current implementation uses a command mapping to find the corresponding function and print its documentation.
+The implementation uses a command mapping to find the corresponding function and print its documentation.
+
+### Repeated Command Execution
+
+#### `watch`
+
+Repeatedly executes a supported command at a specified time interval.
+
+The execution can be interrupted using `Ctrl + C`.
+
+This feature is useful for periodically checking information without manually running the same command multiple times.
+
+## Terminal Customization
+
+`pysh` includes a customization module that allows users to personalize the terminal's appearance.
+
+Current customization options include:
+
+- Prompt color
+- Path color
+- Command color
+- Output color
+- Muted text color
+- Header title color
+- Header subtitle color
+
+The color settings use Rich-compatible color names and styles, allowing combinations such as:
+
+```text
+green
+bold green
+dim cyan
+bold bright_red
+```
+
+Users can choose whether to customize the default theme or keep the predefined settings.
 
 ## Tech Stack
 
 - **Python** — Core language
-- **OS module** — Filesystem operations and path handling
+- **OS** — Filesystem operations and path handling
 - **Datetime** — File timestamps
 - **Colorama** — Colored terminal output
+- **Rich** — Terminal styling and customizable interface
 
 ## Project Structure
 
-The current project uses a simple structure that can evolve as more commands and features are added.
+The project uses a modular structure to keep command implementations, terminal presentation, and UI settings separate.
 
 ```text
 pysh/
 ├── pysh.py
 ├── commands.py
+├── interface.py
+├── uisettings.py
 └── README.md
 ```
 
 - `pysh.py` — Main entry point for the project.
-- `commands.py` — Contains the command implementations.
+- `commands.py` — Contains command implementations.
+- `interface.py` — Handles terminal presentation.
+- `uisettings.py` — Manages theme colors and UI customization.
 - `README.md` — Project documentation.
 
 ## Roadmap
@@ -139,6 +184,10 @@ These are potential next steps, not claims about completed functionality.
 - [x] Read text files and display line numbers
 - [x] Display selected environment information
 - [x] Add command documentation
+- [x] Implement repeated command execution
+- [x] Introduce terminal theme customization
+- [x] Add configurable terminal colors
+- [ ] Persist user settings between sessions
 - [ ] Improve path handling
 - [ ] Build an interactive command loop
 - [ ] Implement command and argument parsing
