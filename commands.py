@@ -2,9 +2,11 @@ import os
 import time
 from datetime import datetime
 from colorama import Fore , Style
-from env import CWD , USER , DESKTOP
+from env import CWD , USER , DESKTOP , COUNTER , HISTORY
 
 def ls(l_flag=False,a_flag=False):
+    global COUNTER
+    COUNTER += 1
     """
     List files and directories in the current working directory.
 
@@ -38,6 +40,7 @@ def ls(l_flag=False,a_flag=False):
                     continue
                 else:
                     print(r,end=" ")
+        
     else:
         for r in result:
             full_path = os.path.join(CWD,r)
@@ -75,6 +78,8 @@ def pwd():
     """
     Display the current working directory of the shell.
     """
+    global COUNTER
+    COUNTER += 1
     print(CWD)
 
 def cd(dir):
@@ -90,6 +95,8 @@ def cd(dir):
         Relative paths are resolved from the current working directory.
         The directory is changed only if the target exists.
     """
+    global COUNTER
+    COUNTER += 1
     global CWD
     if dir.strip() == "..":
         CWD = os.path.abspath(os.path.join(CWD,os.pardir))
@@ -112,6 +119,8 @@ def mkdir(dir_name):
     Notes:
         Displays an error message if the directory or file already exists.
     """
+    global COUNTER
+    COUNTER += 1
     try:
         os.mkdir(os.path.join(CWD,dir_name))
     except FileExistsError as e:
@@ -126,6 +135,8 @@ def printenv():
         Prints the current working directory, username, and desktop
         environment using values imported from the env module.
     """
+    global COUNTER
+    COUNTER += 1
     print(f"PWD = {CWD}")
     print(f"USER = {USER}")
     print(f"DESKTOP = {DESKTOP}")
@@ -141,6 +152,8 @@ def touch(file_name):
     Notes:
         Opens the file in append mode, preserving existing content.
     """
+    global COUNTER
+    COUNTER += 1
     file = open(os.path.join(CWD,file_name),'a')
     file.close()
 
@@ -158,6 +171,8 @@ def cat(file,n_flag=False):
         Prints an error message if the file does not exist or the path
         points to a directory.
     """
+    global COUNTER
+    COUNTER += 1
     if not file:
         return
     try:
@@ -187,6 +202,8 @@ def man(command):
         Supported commands include cd, ls, cat, pwd, touch, mkdir,
         and printenv.
     """
+    global COUNTER
+    COUNTER += 1
     commands = {
         'cd' : cd,
         'ls' : ls,
@@ -204,6 +221,8 @@ def man(command):
         print(f"Unknown command: {command}")
 
 def watch(command, n_flag=False, timer=1):
+    global COUNTER
+    COUNTER += 1
     commands = {
         'cat': cat,
         'pwd': pwd,
@@ -227,8 +246,23 @@ def watch(command, n_flag=False, timer=1):
     except KeyboardInterrupt:
         print("\nWatch stopped.")
 
-watch("ls",n_flag=True,timer=5)
+def history(command):
+    HISTORY[COUNTER] = command
+    for key , val in HISTORY.items():
+        print(f"{key} {val}")
 
+def clear():
+    os.system("clear")
+
+
+def echo(text, file=None,to_file_flag=False):
+    if to_file_flag == True and file is not None:
+        with open(file,'w') as f:
+            f.write(text)
+    else:
+        print(text)
+
+echo("heloo",file="hello.txt",to_file_flag=True)
 
 if __name__ == '__main__':
     print("Pysh Commands")

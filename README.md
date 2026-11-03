@@ -35,7 +35,7 @@ This project is not intended to be a production-ready replacement for existing s
 
 ## Current Features
 
-The project currently includes commands for filesystem navigation, file management, environment information, command documentation, and repeated command execution.
+The project currently includes commands for filesystem navigation, file management, terminal output, environment information, command documentation, history tracking, and repeated command execution.
 
 | Command | Description |
 |:---|:---|
@@ -48,13 +48,17 @@ The project currently includes commands for filesystem navigation, file manageme
 | `touch` | Creates a file without overwriting existing content. |
 | `cat` | Reads and displays a text file. |
 | `cat -n` | Displays file contents with line numbers. |
+| `echo` | Displays text in the terminal. |
+| `echo >` | Writes text to a file, replacing its existing content. |
+| `clear` | Clears the terminal screen. |
 | `printenv` | Displays selected environment information. |
 | `man` | Displays the documentation of a supported command. |
+| `history` | Displays previously recorded commands. |
 | `watch` | Repeatedly executes a supported command at a specified interval. |
 
-### Filesystem Navigation
+## Filesystem Navigation
 
-#### `ls`
+### `ls`
 
 Lists the contents of the current working directory.
 
@@ -63,38 +67,79 @@ Lists the contents of the current working directory.
 - `-a` includes hidden files and directories.
 - `-l` displays file sizes, creation timestamps, and modification timestamps.
 
-#### `pwd`
+### `pwd`
 
 Displays the current working directory maintained by `pysh`.
 
-#### `cd`
+### `cd`
 
 Changes the current working directory.
 
 The current implementation supports:
+
 - Moving to the parent directory with `cd ..`.
 - Returning to the home directory with `cd`.
 - Navigating to a directory when its path can be resolved.
 
-### File Management
+## File Management
 
-#### `mkdir`
+### `mkdir`
 
 Creates a directory inside the current working directory.
 
-#### `touch`
+### `touch`
 
 Creates a file if it does not exist. It uses append mode to preserve the contents of an existing file.
 
-#### `cat`
+### `cat`
 
 Reads and displays the contents of a text file.
 
 The `-n` option displays line numbers alongside the file contents.
 
-### Environment Information
+## Terminal Output
 
-#### `printenv`
+### `echo`
+
+Displays text in the terminal.
+
+The command also supports writing text to a file using the project's output-to-file option.
+
+Example:
+
+```bash
+echo hello
+```
+
+Displays:
+
+```text
+hello
+```
+
+Writing text to a file:
+
+```bash
+echo hello > hello.txt
+```
+
+The current implementation uses a file-writing option to redirect text into a file.
+
+When writing to a file:
+
+- A new file is created if it does not exist.
+- Existing content is replaced.
+- The text is written to the specified file instead of being displayed in the terminal.
+
+### `clear`
+
+Clears the terminal screen.
+
+The current implementation uses the system's `clear` command to clean the terminal display.
+
+## Environment Information
+
+### `printenv`
 
 Displays selected environment information obtained from the project's `env` module:
 
@@ -102,17 +147,37 @@ Displays selected environment information obtained from the project's `env` modu
 - Username (`USER`)
 - Desktop environment (`DESKTOP`)
 
-### Command Documentation
+## Command Documentation
 
-#### `man`
+### `man`
 
 Displays the Python docstring associated with a supported command.
 
 The implementation uses a command mapping to find the corresponding function and print its documentation.
 
-### Repeated Command Execution
+## Command History
 
-#### `watch`
+### `history`
+
+Displays previously recorded commands.
+
+The current implementation uses a shared dictionary to store commands alongside their execution counter.
+
+Each recorded command is associated with a number, allowing the history to be displayed in a numbered format.
+
+Example:
+
+```text
+1 ls
+2 cd
+3 pwd
+```
+
+The history functionality is currently being developed as part of the shell's command management.
+
+## Repeated Command Execution
+
+### `watch`
 
 Repeatedly executes a supported command at a specified time interval.
 
@@ -187,12 +252,16 @@ These are potential next steps, not claims about completed functionality.
 - [x] Implement repeated command execution
 - [x] Introduce terminal theme customization
 - [x] Add configurable terminal colors
+- [x] Add terminal screen clearing
+- [x] Add terminal text output
+- [x] Add basic output-to-file functionality
+- [x] Introduce command history storage and display
 - [ ] Persist user settings between sessions
 - [ ] Improve path handling
 - [ ] Build an interactive command loop
 - [ ] Implement command and argument parsing
 - [ ] Improve error handling
-- [ ] Add command history
+- [ ] Expand command history functionality
 - [ ] Organize commands into separate modules
 - [ ] Explore executing system commands
 - [ ] Experiment with pipes and output redirection
