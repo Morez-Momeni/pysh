@@ -387,6 +387,7 @@ def echo(text, file=None, to_file_flag=False):
     else:
         print(text)
 
-
+def rm():
+    pass
 if __name__ == '__main__':
     print("Pysh Commands")
