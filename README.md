@@ -1,196 +1,200 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=260&color=gradient&section=header&reversal=false&text=Pysh&textBg=false&fontSize=70&fontAlign=50&fontAlignY=50&animation=twinkling&rotate=0&strokeWidth=0&desc=A+Python+Shell+Project&descSize=22&descAlign=49&descAlignY=72" width="100%" alt="Pysh — A Python Shell Project" />
+<img src="https://capsule-render.vercel.app/api?type=waving&height=260&color=gradient&section=header&reversal=false&text=Pysh&textBg=false&fontSize=70&fontAlign=50&fontAlignY=50&animation=twinkling&rotate=0&strokeWidth=0&desc=A+Python+Shell+Project&descSize=22&descAlign=49&descAlignY=72" width="100%" alt="Pysh — A Python Shell Project" />
 
-  <p><strong>A small shell built with Python, one command at a time.</strong></p>
+<br>
 
-  <p>
-    <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
-    <img src="https://img.shields.io/badge/Project-Learning-16865B?style=flat-square" alt="Learning project" />
-    <img src="https://img.shields.io/badge/Status-In%20Progress-orange?style=flat-square" alt="In progress" />
-    <img src="https://img.shields.io/badge/Purpose-Fun%20%26%20Practice-38BDF8?style=flat-square" alt="Fun and practice" />
-  </p>
+**A small shell built with Python, one command at a time.**
+
+<br>
+
+<p>
+  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/Project-Learning-16865B?style=for-the-badge" alt="Learning project" />
+  <img src="https://img.shields.io/badge/Status-In%20Progress-orange?style=for-the-badge" alt="In progress" />
+  <img src="https://img.shields.io/badge/Purpose-Fun%20%26%20Practice-38BDF8?style=for-the-badge" alt="Fun and practice" />
+</p>
 </div>
+
+<br>
 
 ---
 
-## About
+## ✨ About
 
-`pysh` is a personal project built for fun, experimentation, and Python practice.
+`pysh` is a personal project built for **fun**, **experimentation**, and **Python practice**.
 
 The idea is simple: build a small command-line shell from scratch and gradually explore how command-line interfaces work, how files and directories are managed, and how different parts of a shell fit together.
 
 The project also explores terminal presentation and user customization, including configurable colors, terminal styling, and a more structured interface.
 
-This project is not intended to be a production-ready replacement for existing shells. It is a space to learn by building, experiment with new ideas, and improve the code step by step.
+> This project is **not** intended to be a production-ready replacement for existing shells.  
+> It is a space to learn by building, experiment with new ideas, and improve the code step by step.
 
-## Goals
+---
 
-- Practice Python through a hands-on project.
-- Work with filesystem operations and path handling.
-- Learn how to organize commands and their behavior.
-- Explore command parsing and argument handling.
-- Experiment with terminal styling and customization.
-- Improve error handling and code organization.
-- Gradually expand the shell as new ideas come up.
+## 🎯 Goals
 
-## Current Features
+- Practice Python through a hands-on project
+- Work with filesystem operations and path handling
+- Learn how to organize commands and their behavior
+- Explore command parsing and argument handling
+- Experiment with terminal styling and customization
+- Improve error handling and code organization
+- Gradually expand the shell as new ideas come up
+
+---
+
+## 🚀 Current Features
 
 The project currently includes commands for filesystem navigation, file management, terminal output, environment information, command documentation, history tracking, and repeated command execution.
 
-| Command | Description |
-|:---|:---|
-| `ls` | Lists files and directories in the current working directory. |
-| `ls -a` | Includes hidden files and directories. |
-| `ls -l` | Displays file sizes and timestamps. |
-| `pwd` | Displays the current working directory. |
-| `cd` | Changes the current working directory. |
-| `mkdir` | Creates a directory. |
-| `touch` | Creates a file without overwriting existing content. |
-| `cat` | Reads and displays a text file. |
-| `cat -n` | Displays file contents with line numbers. |
-| `echo` | Displays text in the terminal. |
-| `echo >` | Writes text to a file, replacing its existing content. |
-| `clear` | Clears the terminal screen. |
-| `printenv` | Displays selected environment information. |
-| `man` | Displays the documentation of a supported command. |
-| `history` | Displays previously recorded commands. |
-| `watch` | Repeatedly executes a supported command at a specified interval. |
+| Command     | Description                                                      |
+|-------------|------------------------------------------------------------------|
+| `ls`        | Lists files and directories in the current working directory    |
+| `ls -a`     | Includes hidden files and directories                           |
+| `ls -l`     | Displays file sizes and timestamps                               |
+| `pwd`       | Displays the current working directory                           |
+| `cd`        | Changes the current working directory                            |
+| `mkdir`     | Creates a directory                                              |
+| `touch`     | Creates a file without overwriting existing content              |
+| `cat`       | Reads and displays a text file                                   |
+| `cat -n`    | Displays file contents with line numbers                         |
+| `echo`      | Displays text in the terminal                                    |
+| `echo >`    | Writes text to a file, replacing its existing content            |
+| `clear`     | Clears the terminal screen                                       |
+| `printenv`  | Displays selected environment information                        |
+| `man`       | Displays the documentation of a supported command                |
+| `history`   | Displays previously recorded commands                            |
+| `watch`     | Repeatedly executes a supported command at a specified interval  |
 
-## Filesystem Navigation
+---
+
+## 📁 Filesystem Navigation
 
 ### `ls`
-
 Lists the contents of the current working directory.
 
-- Directories are displayed in green.
-- Hidden entries are excluded by default.
-- `-a` includes hidden files and directories.
-- `-l` displays file sizes, creation timestamps, and modification timestamps.
+- Directories are displayed in **green**
+- Hidden entries are excluded by default
+- `-a` includes hidden files and directories
+- `-l` displays file sizes, creation timestamps, and modification timestamps
 
 ### `pwd`
-
 Displays the current working directory maintained by `pysh`.
 
 ### `cd`
-
 Changes the current working directory.
 
-The current implementation supports:
+Supports:
+- Moving to the parent directory with `cd ..`
+- Returning to the home directory with `cd`
+- Navigating to a directory when its path can be resolved
 
-- Moving to the parent directory with `cd ..`.
-- Returning to the home directory with `cd`.
-- Navigating to a directory when its path can be resolved.
+---
 
-## File Management
+## 📂 File Management
 
 ### `mkdir`
-
 Creates a directory inside the current working directory.
 
 ### `touch`
-
-Creates a file if it does not exist. It uses append mode to preserve the contents of an existing file.
+Creates a file if it does not exist. Uses append mode to preserve the contents of an existing file.
 
 ### `cat`
-
 Reads and displays the contents of a text file.
 
 The `-n` option displays line numbers alongside the file contents.
 
-## Terminal Output
+---
+
+## 🖥️ Terminal Output
 
 ### `echo`
-
 Displays text in the terminal.
 
-The command also supports writing text to a file using the project's output-to-file option.
+Also supports writing text to a file using the project's output-to-file option.
 
-Example:
-
+**Example:**
 ```bash
 echo hello
 ```
 
-Displays:
-
+**Output:**
 ```text
 hello
 ```
 
-Writing text to a file:
-
+**Writing to a file:**
 ```bash
 echo hello > hello.txt
 ```
 
-The current implementation uses a file-writing option to redirect text into a file.
-
 When writing to a file:
-
-- A new file is created if it does not exist.
-- Existing content is replaced.
-- The text is written to the specified file instead of being displayed in the terminal.
+- A new file is created if it does not exist
+- Existing content is replaced
+- The text is written to the specified file instead of being displayed in the terminal
 
 ### `clear`
+Clears the terminal screen using the system's `clear` command.
 
-Clears the terminal screen.
+---
 
-The current implementation uses the system's `clear` command to clean the terminal display.
-
-## Environment Information
+## 🌍 Environment Information
 
 ### `printenv`
-
 Displays selected environment information obtained from the project's `env` module:
 
-- Current working directory (`CWD`)
-- Username (`USER`)
-- Desktop environment (`DESKTOP`)
+| Key       | Description                  |
+|-----------|------------------------------|
+| `CWD`     | Current working directory    |
+| `USER`    | Username                     |
+| `DESKTOP` | Desktop environment          |
 
-## Command Documentation
+---
+
+## 📖 Command Documentation
 
 ### `man`
-
 Displays the Python docstring associated with a supported command.
 
-The implementation uses a command mapping to find the corresponding function and print its documentation.
+Uses a command mapping to find the corresponding function and print its documentation.
 
-## Command History
+---
+
+## 🕘 Command History
 
 ### `history`
-
 Displays previously recorded commands.
 
-The current implementation uses a shared dictionary to store commands alongside their execution counter.
+Uses a shared dictionary to store commands alongside their execution counter.  
+Each recorded command is associated with a number.
 
-Each recorded command is associated with a number, allowing the history to be displayed in a numbered format.
-
-Example:
-
+**Example:**
 ```text
-1 ls
-2 cd
-3 pwd
+1  ls
+2  cd
+3  pwd
 ```
 
-The history functionality is currently being developed as part of the shell's command management.
+> The history functionality is currently being developed as part of the shell's command management.
 
-## Repeated Command Execution
+---
+
+## ⏱️ Repeated Command Execution
 
 ### `watch`
-
 Repeatedly executes a supported command at a specified time interval.
 
-The execution can be interrupted using `Ctrl + C`.
+- Execution can be interrupted using `Ctrl + C`
+- Useful for periodically checking information without manually running the same command multiple times
 
-This feature is useful for periodically checking information without manually running the same command multiple times.
+---
 
-## Terminal Customization
+## 🎨 Terminal Customization
 
 `pysh` includes a customization module that allows users to personalize the terminal's appearance.
 
-Current customization options include:
-
+**Current options:**
 - Prompt color
 - Path color
 - Command color
@@ -199,7 +203,7 @@ Current customization options include:
 - Header title color
 - Header subtitle color
 
-The color settings use Rich-compatible color names and styles, allowing combinations such as:
+Color settings use **Rich-compatible** color names and styles:
 
 ```text
 green
@@ -210,37 +214,38 @@ bold bright_red
 
 Users can choose whether to customize the default theme or keep the predefined settings.
 
-## Tech Stack
+---
 
-- **Python** — Core language
-- **OS** — Filesystem operations and path handling
-- **Datetime** — File timestamps
-- **Colorama** — Colored terminal output
-- **Rich** — Terminal styling and customizable interface
+## 🛠️ Tech Stack
 
-## Project Structure
+| Technology   | Purpose                              |
+|--------------|--------------------------------------|
+| **Python**   | Core language                        |
+| **OS**       | Filesystem operations & path handling|
+| **Datetime** | File timestamps                      |
+| **Colorama** | Colored terminal output              |
+| **Rich**     | Terminal styling & customizable UI   |
 
-The project uses a modular structure to keep command implementations, terminal presentation, and UI settings separate.
+---
+
+## 📂 Project Structure
 
 ```text
 pysh/
-├── pysh.py
-├── commands.py
-├── interface.py
-├── uisettings.py
-└── README.md
+├── pysh.py          # Main entry point
+├── commands.py      # Command implementations
+├── interface.py     # Terminal presentation
+├── uisettings.py    # Theme colors & UI customization
+└── README.md        # Project documentation
 ```
 
-- `pysh.py` — Main entry point for the project.
-- `commands.py` — Contains command implementations.
-- `interface.py` — Handles terminal presentation.
-- `uisettings.py` — Manages theme colors and UI customization.
-- `README.md` — Project documentation.
+---
 
-## Roadmap
+## 🗺️ Roadmap
 
-These are potential next steps, not claims about completed functionality.
+These are potential next steps — not claims about completed functionality.
 
+### Completed
 - [x] Implement directory listing
 - [x] Add colored directory names
 - [x] Display file metadata
@@ -256,6 +261,8 @@ These are potential next steps, not claims about completed functionality.
 - [x] Add terminal text output
 - [x] Add basic output-to-file functionality
 - [x] Introduce command history storage and display
+
+### Planned
 - [ ] Persist user settings between sessions
 - [ ] Improve path handling
 - [ ] Build an interactive command loop
@@ -266,22 +273,29 @@ These are potential next steps, not claims about completed functionality.
 - [ ] Explore executing system commands
 - [ ] Experiment with pipes and output redirection
 
-## Why This Project?
+---
+
+## 💡 Why This Project?
 
 Because sometimes the best way to understand something is to build a small version of it yourself.
 
-`pysh` is an opportunity to experiment, make mistakes, refactor, and learn along the way. There is no pressure to make everything perfect from the beginning. The goal is to keep building and understand a little more with every step.
+`pysh` is an opportunity to experiment, make mistakes, refactor, and learn along the way.  
+There is no pressure to make everything perfect from the beginning.  
+The goal is to **keep building** and understand a little more with every step.
 
-## Disclaimer
+---
 
-This is an educational project created for personal practice and experimentation. It is not intended to replace Bash, Zsh, or other mature command-line shells.
+## ⚠️ Disclaimer
+
+This is an **educational project** created for personal practice and experimentation.  
+It is **not** intended to replace Bash, Zsh, or other mature command-line shells.
 
 ---
 
 <div align="center">
-  <sub>Built with Python, curiosity, and a willingness to experiment.</sub>
+<sub>Built with Python, curiosity, and a willingness to experiment.</sub>
 </div>
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=210&color=gradient&section=footer&reversal=false&textBg=false&fontSize=70&fontAlign=50&fontAlignY=50&animation=twinkling&rotate=0&strokeWidth=0&descSize=22&descAlign=49&descAlignY=72" width="100%" alt="Gradient footer" />
+<img src="https://capsule-render.vercel.app/api?type=waving&height=210&color=gradient&section=footer&reversal=false&textBg=false&fontSize=70&fontAlign=50&fontAlignY=50&animation=twinkling&rotate=0&strokeWidth=0&descSize=22&descAlign=49&descAlignY=72" width="100%" alt="Gradient footer" />
 </div>
