@@ -1,4 +1,5 @@
 import os
+import shutil
 import time
 from datetime import datetime
 from colorama import Fore, Style
@@ -387,7 +388,45 @@ def echo(text, file=None, to_file_flag=False):
     else:
         print(text)
 
-def rm():
-    pass
+
+def rm(file_path, r_flag=False):
+    """
+    Remove a file or directory.
+
+    Args:
+        file_path (str): The path of the file or directory to remove.
+        r_flag (bool): Recursively remove a directory when True.
+
+    Returns:
+        int: 1 if the removal is successful, otherwise 0.
+
+    Notes:
+        Files can be removed without specifying r_flag.
+        Directories require r_flag=True.
+    """
+    full_path = os.path.join(CWD, file_path)
+
+    if os.path.isfile(full_path):
+        os.remove(full_path)
+        return 1
+
+    elif os.path.isdir(full_path) and r_flag:
+        shutil.rmtree(full_path)
+        return 1
+
+    else:
+        return 0
+
+def mv(source, destination):
+    source = os.path.join(CWD, source)
+    destination = os.path.join(CWD, destination)
+
+    if os.path.isdir(destination):
+        shutil.move(source, destination)
+    else:
+        os.rename(source, destination)
+
+
+
 if __name__ == '__main__':
     print("Pysh Commands")
