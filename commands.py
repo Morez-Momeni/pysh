@@ -251,6 +251,7 @@ def cat(file, n_flag=False):
         print(f"Erorr: {e}")
 
 
+
 def man(command):
     """
     Display the documentation of a supported command.
@@ -260,9 +261,9 @@ def man(command):
                        is requested.
 
     Notes:
-        Displays the command's docstring.
+        Displays the docstring of the requested command.
         Supported commands include cd, ls, cat, pwd, touch, mkdir,
-        printenv, man, watch, history, clear, and echo.
+        printenv, man, watch, history, clear, echo, mv, and uname.
         Increments the command counter.
     """
     global COUNTER
@@ -280,7 +281,9 @@ def man(command):
         'watch': watch,
         'history': history,
         'clear': clear,
-        'echo': echo
+        'echo': echo,
+        'mv': mv,
+        'uname': uname
     }
 
     func = commands.get(command)
@@ -291,7 +294,7 @@ def man(command):
     else:
         print(f"Unknown command: {command}")
 
-
+        
 def watch(command, n_flag=False, timer=1):
     """
     Execute a supported command repeatedly or once.
@@ -418,6 +421,19 @@ def rm(file_path, r_flag=False):
         return 0
 
 def mv(source, destination):
+    """
+    Move or rename a file or directory.
+
+    Args:
+        source (str): The source file or directory path.
+        destination (str): The destination path or new name.
+
+    Notes:
+        If the destination is an existing directory, moves the source
+        into that directory using shutil.move().
+        Otherwise, renames or moves the source using os.rename().
+        Relative paths are resolved from the current working directory.
+    """
     source = os.path.join(CWD, source)
     destination = os.path.join(CWD, destination)
 
@@ -427,6 +443,54 @@ def mv(source, destination):
         os.rename(source, destination)
 
 
+def uname(a_flag=False, s_flag=False, n_flag=False,
+          v_flag=False, m_flag=False):
+    """
+    Display system information.
+
+    Args:
+        a_flag (bool): Display all available system information.
+        s_flag (bool): Display the operating system name.
+        n_flag (bool): Display the network node hostname.
+        v_flag (bool): Display the operating system version.
+        m_flag (bool): Display the machine hardware architecture.
+
+    Notes:
+        Uses os.uname() to retrieve system information.
+        If no flag is provided, displays the operating system name.
+        Only the first matching flag is processed when multiple flags
+        are enabled.
+    """
+    if a_flag:
+        print(
+            f"{os.uname().sysname} "
+            f"{os.uname().nodename} "
+            f"{os.uname().release} "
+            f"{os.uname().version} "
+            f"{os.uname().machine}"
+        )
+
+    elif s_flag:
+        print(os.uname().sysname)
+
+    elif n_flag:
+        print(os.uname().nodename)
+
+    elif v_flag:
+        print(os.uname().version)
+
+    elif m_flag:
+        print(os.uname().machine)
+
+    else:
+        print(os.uname().sysname)
+
+uname()
 
 if __name__ == '__main__':
     print("Pysh Commands")
+
+
+
+
+ 
