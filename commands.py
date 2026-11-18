@@ -294,7 +294,7 @@ def man(command):
     else:
         print(f"Unknown command: {command}")
 
-        
+
 def watch(command, n_flag=False, timer=1):
     """
     Execute a supported command repeatedly or once.
@@ -485,7 +485,22 @@ def uname(a_flag=False, s_flag=False, n_flag=False,
     else:
         print(os.uname().sysname)
 
-uname()
+def cp(source, destination, r_flag=False):
+    source_path = os.path.join(CWD,source)
+    destination_path = os.path.join(CWD, destination)
+    if os.path.isfile(source_path) and os.path.isfile(destination) == False and os.path.isdir(destination_path) == False :
+        shutil.copy(source_path,destination_path)
+        return 1
+    elif os.path.isfile(source_path) and os.path.isdir(destination_path):
+        shutil.copy2(source_path, destination_path)
+        return 1
+    elif os.path.isdir(source_path) and os.path.isdir(destination_path) == False and r_flag == True:
+        shutil.copytree(source_path,destination_path)
+        return 1
+    else:
+        return 0
+
+cp("commands.py","/home/morez/Projects/pysh/commands.py")
 
 if __name__ == '__main__':
     print("Pysh Commands")
