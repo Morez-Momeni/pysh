@@ -1,15 +1,21 @@
-\<div align="center">
-\<img src="[https://capsule-render.vercel.app/api?type=waving&height=260&color=gradient&section=header&reversal=false&text=Pysh&textBg=false&fontSize=70&fontAlign=50&fontAlignY=50&animation=twinkling&rotate=0&strokeWidth=0&desc=A+Python+Shell+Project&descSize=22&descAlign=49&descAlignY=72](https://capsule-render.vercel.app/api?type=waving\&height=260\&color=gradient\&section=header\&reversal=false\&text=Pysh\&textBg=false\&fontSize=70\&fontAlign=50\&fontAlignY=50\&animation=twinkling\&rotate=0\&strokeWidth=0\&desc=A+Python+Shell+Project\&descSize=22\&descAlign=49\&descAlignY=72)" width="100%" alt="Pysh — A Python Shell Project" />
+<div align="center">
+<img src="https://capsule-render.vercel.app/api?type=waving&height=260&color=gradient&section=header&reversal=false&text=Pysh&textBg=false&fontSize=70&fontAlign=50&fontAlignY=50&animation=twinkling&rotate=0&strokeWidth=0&desc=A+Python+Shell+Project&descSize=22&descAlign=49&descAlignY=72" width="100%" alt="Pysh — A Python Shell Project" />
 
-\<br>
+<br>
 
 **A small shell built with Python, one command at a time.**
 
-\<br>
+<br>
 
-\<p>   \<img src="[https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge\&logo=python\&logoColor=white)" alt="Python" />   \<img src="[https://img.shields.io/badge/Project-Learning-16865B?style=for-the-badge](https://img.shields.io/badge/Project-Learning-16865B?style=for-the-badge)" alt="Learning project" />   \<img src="[https://img.shields.io/badge/Status-In%20Progress-orange?style=for-the-badge](https://img.shields.io/badge/Status-In%20Progress-orange?style=for-the-badge)" alt="In progress" />   \<img src="[https://img.shields.io/badge/Purpose-Fun%20%26%20Practice-38BDF8?style=for-the-badge](https://img.shields.io/badge/Purpose-Fun%20%26%20Practice-38BDF8?style=for-the-badge)" alt="Fun and practice" /> \</p> \</div>
+<p>
+  <img src="https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/Project-Learning-16865B?style=for-the-badge" alt="Learning project" />
+  <img src="https://img.shields.io/badge/Status-In%20Progress-orange?style=for-the-badge" alt="In progress" />
+  <img src="https://img.shields.io/badge/Purpose-Fun%20%26%20Practice-38BDF8?style=for-the-badge" alt="Fun and practice" />
+</p>
+</div>
 
-\<br>
+<br>
 
 ---
 
@@ -378,7 +384,10 @@ It is **not** intended to replace Bash, Zsh, or other mature command-line shells
 
 ---
 
-\<div align="center"> \<sub>Built with Python, curiosity, and a willingness to experiment.\</sub> \</div>
+<div align="center">
+  <sub>Built with Python, curiosity, and a willingness to experiment.</sub>
+</div>
 
-\<div align="center"> \<img src="[https://capsule-render.vercel.app/api?type=waving&height=210&color=gradient&section=footer&reversal=false&textBg=false&fontSize=70&fontAlign=50&fontAlignY=50&animation=twinkling&rotate=0&strokeWidth=0&descSize=22&descAlign=49&descAlignY=72](https://capsule-render.vercel.app/api?type=waving\&height=210\&color=gradient\&section=footer\&reversal=false\&textBg=false\&fontSize=70\&fontAlign=50\&fontAlignY=50\&animation=twinkling\&rotate=0\&strokeWidth=0\&descSize=22\&descAlign=49\&descAlignY=72)" width="100%" alt="Gradient footer" /> \</div>
-
+<div align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=210&color=gradient&section=footer&reversal=false&textBg=false&fontSize=70&fontAlign=50&fontAlignY=50&animation=twinkling&rotate=0&strokeWidth=0&descSize=22&descAlign=49&descAlignY=72" width="100%" alt="Gradient footer" />
+</div>
